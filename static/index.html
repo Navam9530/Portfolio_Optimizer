@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panacea AI - Portfolio Optimization</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+
+    <main class="container">
+        <header>
+            <h1>Portfolio Intelligence</h1>
+            <p class="subtitle">Optimize your financial future with AI-driven insights</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('fis')">FIS Calculator</button>
+            <button class="tab-btn" onclick="switchTab('optimize')">Portfolio Optimizer</button>
+        </div>
+
+        <section id="fis-section" class="card active-section">
+            <h2>Calculate Financial Independence Score</h2>
+            <form id="fis-form">
+                <div class="form-group">
+                    <label for="fis-risk">Risk Profile</label>
+                    <select id="fis-risk" required>
+                        <option value="conservative">Conservative</option>
+                        <option value="balanced" selected>Balanced</option>
+                        <option value="aggressive">Aggressive</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Current Portfolio</label>
+                    <div id="portfolio-inputs">
+                        <div class="stock-row">
+                            <input type="text" placeholder="Ticker (e.g. AAPL)" class="stock-ticker" required>
+                            <input type="number" placeholder="Qty" class="stock-quantity" min="0" step="any" required>
+                            <button type="button" class="btn-remove" onclick="removeRow(this)"
+                                style="visibility: hidden;">×</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-secondary" onclick="addStockRow()">+ Add Stock</button>
+                </div>
+
+                <button type="submit" class="btn-primary">Calculate FIS</button>
+            </form>
+            <div id="fis-result" class="result-box hidden"></div>
+            <div class="loading-overlay">
+                <div class="spinner"></div>
+            </div>
+        </section>
+
+        <section id="optimize-section" class="card">
+            <h2>Generate Optimized Portfolio</h2>
+            <form id="optimize-form">
+                <div class="form-group">
+                    <label for="opt-risk">Risk Profile</label>
+                    <select id="opt-risk" required>
+                        <option value="conservative">Conservative</option>
+                        <option value="balanced" selected>Balanced</option>
+                        <option value="aggressive">Aggressive</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="opt-budget">Investment Budget ($)</label>
+                    <input type="number" id="opt-budget" min="100" step="100" value="10000" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Optimize Portfolio</button>
+            </form>
+            <div id="optimize-result" class="result-box hidden"></div>
+            <div class="loading-overlay">
+                <div class="spinner"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
