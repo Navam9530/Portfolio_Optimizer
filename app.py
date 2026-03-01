@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from main import FIS, optimized_portfolio
 
-app = FastAPI(title="Cashflow")
+app = FastAPI(title="Portfolio Optimizer")
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
